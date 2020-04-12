@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator - Shahar Peretz</title>
+    <link rel="stylesheet" href="css/meme.css">
+    <link rel="stylesheet" href="animate.css" />
+</head>
+
+<body onload="onInit()">
+    <nav>
+        <h2 class="new-logo gardient">MEME</h2>
+        <!-- <img src="LOGO/LOGO.png" alt="" class="logo"> -->
+        <p class="navparagraph"><span class="Gallery" onclick="backToGallery()">Gallery</span><span class="saved-memes"
+                onclick="goToSavedMemes()">
+                | Saved Memes | </span> <span class="about">
+                about</span></p>
+    </nav>
+
+    <div class="home flex">
+        <div class="search">
+            <input type="text" placeholder="Search Your Meme!" class="meme-search" onkeyup="onSearchMeme(this.value)">
+        </div>
+        <section class="gallery"></section>
+    </div>
+
+
+    <section class="saved-memes-gallery gallery"></section>
+
+
+
+
+    <section class="editor">
+
+        <canvas class="flex" id="my-canvas" height="500" width="500" class="first-canvas"
+            onmousedown="onCanvasClicked(event)"></canvas>
+        <section class="grid-icons">
+            <input class="item1" type="text" name="" id="text" placeholder="Enter a Text Here"
+                onkeyup="onAddTextLetter(this.value)">
+            <i class="add-font icon item2"><img onclick="onSubmitLine()" src="ICONS/add.png" alt=""></i>
+
+            <!-- <img  src="ICONS/add.png" class="item2 icon" onclick="onSubmitLine()"> -->
+            <i class="increase-font icon item3"><img onclick="changeFontSize(true)" src="ICONS/increase font - icon.png"
+                    alt=""></i>
+
+
+            <i class="decrease-font icon item4"><img onclick="changeFontSize(false)"
+                    src="ICONS/decrease font - icon.png" alt=""></i>
+
+
+            <i class="arrows icon item5"><img onclick="onArrowAble()" src="ICONS/arrows.png" alt="" class="up-down"></i>
+
+            <i class="moveline icon item6"><img onclick="onSwtichLine()"
+                    src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></i>
+
+
+            <i class="item7 icon"><img src="ICONS/trash.png" alt="" onclick="onRemoveLine()"></i>
+
+            <i class="item8 icon"><img onclick="onChangeAlign('left')" src="ICONS/align-to-left.png" alt=""></i>
+            <i class="item9 icon"><img onclick="onChangeAlign('center')" src="ICONS/center-text-alignment.png"
+                    alt=""></i>
+            <i class="item10 icon"><img onclick="onChangeAlign('right')" src="ICONS/align-to-right.png" alt=""></i>
+
+
+            <i class="item11 icon"><img src="ICONS/paint-board-and-brush.png" alt="" onclick="onChooseColor()"></i>
+            <input type="color" id="textColor" class="color" onchange="onChangeColor(this.value)" hidden>
+
+
+            <i class="item12 icon"><img onclick="onStrokeLine()" src="ICONS/text-stroke.png" alt=""></i>
+            <input type="color" id="textColorStroke" class="color" onchange="onChangeColorStroke(this.value)" hidden>
+
+
+
+            <i class="icon download"> <button href="#" onclick="downloadCanvas(this)" class="download"
+                    download="">Download</button> </i>
+
+
+
+            <i class="icon item14"> <button href="#" onclick="onSaveImg()" class="save-meme item14"
+                    >Save</button> </i>
+
+
+
+
+
+            <!-- <i class="item14 icon"><img onclick="onSaveImg()" src="ICONS/linkedin-logo.png" alt=""></i> -->
+
+
+
+
+
+        </section>
+    </section>
+
+
+
+
+
+    <footer class="flex ">
+        <div class="new-logo flex gardient">MEME</div>
+
+        <!-- <img src="LOGO/LOGO.png" alt="" class="logo"> -->
+        <p class="singature flex">All right reserver 2019</p>
+    </footer>
+
+
+
+
+
+
+    <script src="js/utils.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/meme-conroller.js"></script>
+</body>
+
+</html>
