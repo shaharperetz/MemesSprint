@@ -35,7 +35,17 @@ function onAddTextLetter() {
 
 function onSaveImg() {
     saveImg()
-    alert('image saved')
+    const screen = document.querySelector('.screen')
+    const modalContainer = document.querySelector('.modal-container')
+    const modal = document.querySelector('.modal')
+    screen.style.display = 'flex'
+    modalContainer.style.display = 'flex'
+    modal.classList.add('tada')
+    setTimeout(() => {
+        screen.style.display = 'none'
+        modalContainer.style.display = 'none'
+        modal.classList.remove('tada')
+    }, 1700);
 }
 
 
@@ -44,10 +54,17 @@ function renderGallery(imgs = getImgs()) {
     var gallery = document.querySelector('.gallery')
     var strHTML = '';
     imgs.forEach(img => {
-        strHTML += `<img class="meme" src="simgs/${img.id}.jpg" alt="no photo" id="${img.id}" onclick="onClickMeme(this)">`
+        strHTML += `<img class="meme animated" src="simgs/${img.id}.jpg" alt="no photo" id="${img.id}" onmouseover="animateit(this)" onclick="onClickMeme(this)">`
     })
     gallery.innerHTML = strHTML
 
+}
+
+function animateit(el) {
+    el.classList.add('pulse')
+    setTimeout(() => {
+        el.classList.remove('pulse')
+    }, 1500);
 }
 
 
@@ -63,15 +80,19 @@ function renderSavedMemes(imgs = getSavedMemes()) {
 
 
 function onClickMeme(el) {
+    el.classList.add('bounceOut')
+    setTimeout(() => {
+        const home = document.querySelector('.home')
+        const editor = document.querySelector('.editor')
+        const savedMemesPage = document.querySelector('.saved-memes-gallery')
+        var id = el.id;
+        savedMemesPage.style.display = 'none'
+        home.style.display = 'none';
+        editor.style.display = 'flex';
+        drawImg(id)
+        el.classList.remove('bounceOut')
+    }, 1300);
 
-    const home = document.querySelector('.home')
-    const editor = document.querySelector('.editor')
-    const savedMemesPage = document.querySelector('.saved-memes-gallery')
-    var id = el.id;
-    savedMemesPage.style.display = 'none'
-    home.style.display = 'none';
-    editor.style.display = 'flex';
-    drawImg(id)
 
 }
 function onClickMemeSaved(id) {
@@ -136,9 +157,9 @@ function renderCanvas(x = 50, y = 50) {
     let memes = getGmeme()
     var img = new Image()
     img.src = `./simgs/${memes.selectedImgId}.jpg`
-    gCtx.drawImage(img, 0, 0)
     gX = gCanvas.width / 2
     img.onload = () => {
+        gCtx.drawImage(img, 0, 0)
         memes.lines.forEach(line => {
             gCtx.lineWidth = '2'
             gCtx.strokeStyle = `${line.strokeColor}`
