@@ -12,9 +12,11 @@
 <body onload="onInit()">
 
     <div class="screen"> </div>
-    <div class="modal-container"><div class="modal animated">Your Image Saved !</div></div>
-      
- 
+    <div class="modal-container">
+        <div class="modal animated">Your Image Saved !</div>
+    </div>
+
+
     <nav>
         <h2 class="new-logo gardient">MEME</h2>
         <!-- <img src="LOGO/LOGO.png" alt="" class="logo"> -->
@@ -78,18 +80,23 @@
 
 
 
-            <i class="icon download"> <button href="#" onclick="downloadCanvas(this)" class="download"
-                    download="">Download</button> </i>
+            <div class="arrow-modal animated">Now you can move the the line with arrows</div>
 
 
 
-            <i class="icon item14"> <button href="#" onclick="onSaveImg()" class="save-meme item14">Save</button> </i>
+            <i class="item14 icon"><img onclick="onDownloadImg()" src="ICONS/download.png" alt=""></i>
+            <a href="#" onclick="downloadCanvas(this)" class="download-img " hidden></a>
+
+            <i class="item13 icon"><img onclick="onSaveImg()" src="ICONS/save.png" alt=""></i>
 
 
 
 
 
-            <!-- <i class="item14 icon"><img onclick="onSaveImg()" src="ICONS/linkedin-logo.png" alt=""></i> -->
+
+
+
+
 
 
 

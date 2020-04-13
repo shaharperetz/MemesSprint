@@ -114,9 +114,13 @@ function onClickMemeSaved(id) {
 }
 
 function onArrowAble() {
+
     var elArrowIcon = document.querySelector('.up-down')
     var growAble = getGrow()
+    var arrowModal = document.querySelector('.arrow-modal');
     elArrowIcon.style.border = (growAble) ? '0px solid black' : '2px solid black'
+    arrowModal.style.display = (growAble) ? 'none' : 'block'
+
     console.log(elArrowIcon)
     setArrowAble()
 }
@@ -324,4 +328,9 @@ function goToSavedMemes() {
     home.style.display = 'none'
     savedMemesPage.style.display = 'flex'
     renderSavedMemes()
+}
+
+function onDownloadImg(){
+    var img = document.querySelector('.download-img')
+    img.click()
 }
